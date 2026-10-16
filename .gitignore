@@ -1,0 +1,15 @@
+# Claude Code (personal)
+.claude/settings.local.json
+
+# Secrets
+.env
+!.env.example
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Old root-level graph (each subproject now owns its own graphify-out/)
+/graphify-out/

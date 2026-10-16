@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/tavangar79/car-assistant-back.git
+[submodule "client"]
+	path = client
+	url = https://github.com/tavangar79/car-assistant-flutter.git
