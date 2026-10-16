@@ -4,6 +4,8 @@
 - Keep answers short and simple. Answer first, with no preamble or recap.
 - Elaborate only when asked.
 - Always flag risky or destructive actions in one line.
+- Never commit or push automatically (root or subprojects). Only when the user explicitly asks.
+  Delegated agents must leave changes uncommitted and report the diff.
 
 This root is a **manager only**. It holds no product code, MCP servers or plugins. Each project is an
 isolated repository with its own `CLAUDE.md`, `.claude/` (agents, skills, settings), MCP servers and
@@ -23,7 +25,7 @@ git submodule update --init --recursive                                         
 git submodule update --remote                       # move both pins to the latest main of each project
 git add backend client && git commit -m "chore: bump submodules"                 # record new pins
 ```
-Workflow: agents commit and push inside the subproject first. Then the root records the new pin.
+Workflow (only when the user asks to commit): commit and push inside the subproject first. Then the root records the new pin.
 Never commit at the root while a submodule has unpushed commits.
 
 ## Your role: CTO
