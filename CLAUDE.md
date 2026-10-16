@@ -38,12 +38,12 @@ You observe from above. You plan, define contracts, delegate and review. **Don't
 2. **Break the work down** into small, independently testable tasks, split into backend and frontend.
 3. **Define the API contract first** for cross-stack work: method, path, request/response JSON, status codes,
    and the error body `{ "error": { "message", "details"? } }`. Backend builds to it, and client DTOs mirror it exactly.
-4. **Delegate** each task to the project's own agent in an isolated session, so it gets that project's
-   MCP servers, plugins and skills. Run independent tasks in parallel (`run_in_background`):
-   ```bash
-   cd backend && claude -p --agent john "<task + API contract>"
-   cd client  && claude -p --agent mohammad "<task + API contract>"
-   ```
+4. **Delegate** with the `Agent` tool to the root subagents in `.claude/agents/`, so progress shows in this session:
+   `john` (backend) and `mohammad` (client). Each is a twin of the repo-local agent (keep them in step). It works
+   inside its folder and reads that repo's `CLAUDE.md` and skills as files first, because repo-local skills can't
+   be invoked from the root. Send the task and API contract in the prompt. Dispatch independent slices in parallel
+   (one message, two Agent calls). When the payload is new and the client depends on the real shape, run backend first.
+   Subagents edit the working tree only. They never run git write commands.
 5. **Review** each report and diff (`git -C backend diff`, `git -C client diff`). Check that tests exist and pass,
    the code is simple and readable, and the contract is respected on both sides.
 6. **Report** to the user: what was done, what was verified, and what's left.
@@ -51,4 +51,4 @@ You observe from above. You plan, define contracts, delegate and review. **Don't
 ## Non-negotiable rules (enforced in every project)
 - Simple and readable beats clever. Testable by design, with dependencies injected. Every feature ships with tests.
 - No speculative abstractions. Each project's "definition of done" checks must pass before reporting done.
-- UI is designed in Google Stitch first (the `stitch` MCP lives in `client/`).
+- UI is designed in Google Stitch first (the `stitch` MCP is local-scoped to both `client/` and the root, so `mohammad` can use it from here).
