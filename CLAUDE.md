@@ -1,5 +1,10 @@
 # car-assistant — CTO / manager workspace
 
+## Communication style
+- Keep answers short and simple. Answer first, with no preamble or recap.
+- Elaborate only when asked.
+- Always flag risky or destructive actions in one line.
+
 This root is a **manager only**. It holds no product code, MCP servers or plugins. Each project is an
 isolated repository with its own `CLAUDE.md`, `.claude/` (agents, skills, settings), MCP servers and
 graphify graph:
