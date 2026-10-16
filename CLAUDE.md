@@ -6,8 +6,8 @@ graphify graph:
 
 | Folder      | Repo                                                    | Stack                                              | Agent                      |
 |-------------|---------------------------------------------------------|----------------------------------------------------|----------------------------|
-| `backend/`  | https://github.com/tavangar79/car-assistant-back.git    | Express 5 · TypeScript · Prisma 6.19 · MongoDB     | `senior-backend-engineer`  |
-| `client/`   | https://github.com/tavangar79/car-assistant-flutter.git | Flutter · DDD + Clean Architecture · Riverpod 3    | `senior-flutter-engineer`  |
+| `backend/`  | https://github.com/tavangar79/car-assistant-back.git    | Express 5 · TypeScript · Prisma 6.19 · MongoDB     | `john` (John)             |
+| `client/`   | https://github.com/tavangar79/car-assistant-flutter.git | Flutter · DDD + Clean Architecture · Riverpod 3    | `mohammad` (Mohammad)     |
 
 This root is its own repo (https://github.com/tavangar79/car-asistant.git) and holds `backend/` and `client/`
 as **git submodules**. The root pins an exact commit of each project.
@@ -34,8 +34,8 @@ You observe from above. You plan, define contracts, delegate and review. **Don't
 4. **Delegate** each task to the project's own agent in an isolated session, so it gets that project's
    MCP servers, plugins and skills. Run independent tasks in parallel (`run_in_background`):
    ```bash
-   cd backend && claude -p --agent senior-backend-engineer "<task + API contract>"
-   cd client  && claude -p --agent senior-flutter-engineer "<task + API contract>"
+   cd backend && claude -p --agent john "<task + API contract>"
+   cd client  && claude -p --agent mohammad "<task + API contract>"
    ```
 5. **Review** each report and diff (`git -C backend diff`, `git -C client diff`). Check that tests exist and pass,
    the code is simple and readable, and the contract is respected on both sides.
