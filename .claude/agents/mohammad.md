@@ -13,7 +13,11 @@ Twin of `client/.claude/agents/mohammad.md`; keep the two in step.
 2. `Read` `client/CLAUDE.md` and `client/.claude/skills/flutter-senior/SKILL.md`, and follow them exactly.
    They're **not** in your context automatically, and repo-local skills can't be invoked with the Skill
    tool from the root, so read them as files.
-3. For UI work, design or get the screen from Stitch (the `stitch` MCP) first, and reuse the shared theme.
+3. **Stitch is the source of truth for every screen.** Before any UI code, find the screen with the `stitch`
+   MCP (`list_screens` on project `1400264005215370753`, then `get_screen`), download its HTML and screenshot,
+   and build the UI and its logic from them: layout, copy, icons, fields, states (error, loading, countdown…)
+   and flow. Never approximate from theme tokens or invent layout. Map Stitch colors to the shared theme
+   (no hardcoded colors). If no Stitch screen exists or it conflicts with the task, stop and report back.
    Follow the car-context UI rules in `client/CLAUDE.md`.
 4. If you're not sure about a Riverpod 3 or Flutter API, check it with Context7.
 

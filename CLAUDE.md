@@ -14,7 +14,7 @@ graphify graph:
 | Folder      | Repo                                                    | Stack                                              | Agent                      |
 |-------------|---------------------------------------------------------|----------------------------------------------------|----------------------------|
 | `backend/`  | https://github.com/tavangar79/car-assistant-back.git    | Express 5 · TypeScript · Prisma 6.19 · MongoDB     | `john` (John)             |
-| `client/`   | https://github.com/tavangar79/car-assistant-flutter.git | Flutter · DDD + Clean Architecture · Riverpod 3    | `mohammad` (Mohammad)     |
+| `client/`   | https://github.com/tavangar79/car-assistant-flutter.git | Flutter · DDD + Clean Architecture · Riverpod 3 · dio · fpdart | `mohammad` (Mohammad)     |
 
 This root is its own repo (https://github.com/tavangar79/car-asistant.git) and holds `backend/` and `client/`
 as **git submodules**. The root pins an exact commit of each project.
