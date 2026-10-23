@@ -13,3 +13,6 @@ Thumbs.db
 
 # Old root-level graph (each subproject now owns its own graphify-out/)
 /graphify-out/
+
+# Playwright MCP artifacts
+/.playwright-mcp/
