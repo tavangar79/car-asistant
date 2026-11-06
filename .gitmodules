@@ -4,3 +4,6 @@
 [submodule "client"]
 	path = client
 	url = https://github.com/tavangar79/car-assistant-flutter.git
+[submodule "admin"]
+	path = admin
+	url = git@github.com:tavangar79/car-assistant-admin.git

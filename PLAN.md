@@ -86,7 +86,27 @@ Contract: `API-PHASE7.md` (root). Decisions 2026-10-23: scopes global → make �
 - [x] T7.2 backend: `GET /api/service-items` and `GET …/intervals` resolve per vehicle (`?vehicleId=` for the catalog).
 - [x] T7.3 backend: admin role on `User` + admin endpoints to add/edit/disable items and interval defaults per scope; `admin:grant` / `admin:revoke` scripts.
 - [x] T7.4 client: pass the vehicle to the catalog call; show disabled items in old visits read-only.
-- [ ] T7.5 (optional) admin UI: deferred by user decision (API only for now).
+- [ ] T7.5 (optional) admin UI: superseded by Phase 8.
+
+## Phase 8 — Admin panel
+Contract: `API-ADMIN.md` (root). Brief: `concepts_brief.md`. New repo `admin/` (React + TS + Vite + shadcn/ui), agent `mobin`.
+Built 2026-11-06, uncommitted; not yet run end-to-end (db:push pending). Decisions 2026-11-06: one admin (username + password + TOTP) replaces role-based admin; separate `ADMIN_JWT_SECRET` + `aud: "admin"`, 10-day token, no revocation; English UI, i18n-ready; no Stitch.
+- [x] B1 backend: schema (`Admin`, `User.blockedAt/blockReason`, `createdAt` indexes) + in-memory fakes.
+- [x] B2 backend: pure TOTP + scrypt password modules.
+- [x] B3 backend: AdminRepository + `admin:setup` CLI.
+- [x] B4 backend: env, admin token service, admin guard, login + me.
+- [x] B5 backend: catalog cutover (remove role admin) + `GET /api/admin/vehicle-catalog`.
+- [x] B6 backend: blocked enforcement (requireAuth, otp request/verify).
+- [x] B7 backend: users list/detail/patch/block/unblock.
+- [x] B8 backend: collection browser registry + DMMF coverage test.
+- [x] B9 backend: stats.
+- [x] C1 client: `user_blocked` handling + "account blocked" screen (same release as B6).
+- [x] A0 admin: scaffold, `CLAUDE.md`, repo-local agent twin, definition of done.
+- [x] A1 admin: API client (zod), login, auth guard, layout shell.
+- [x] A2 admin: catalog screen (service items + interval defaults).
+- [x] A3 admin: users list + user detail + edit + block/unblock.
+- [x] A4 admin: collection browser.
+- [x] A5 admin: stats dashboard with charts.
 - Left open: `db:push` pending (new collections + unique indexes); not tested end-to-end; graphify graphs stale.
 
 ## Parallelism
